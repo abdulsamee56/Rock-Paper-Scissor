@@ -31,9 +31,23 @@ function playRound(playerChoice, computerChoice) {
     }
   }
 
-
-
-for(let i =0; i < 5;i++){
-    console.log(playRound(getPlayerChoice(),getComputerChoice()));
-}
-
+  function game() {
+    let playerWins = 0; // Variable to track player's wins
+    let computerWins = 0; // Variable to track computer's wins
+  
+    for (let i = 0; i < 5; i++) {
+      let result = playRound(getPlayerChoice(), getComputerChoice());
+      console.log(result);
+  
+      if (result.includes("Player wins")) {
+        playerWins++;
+      } else if (result.includes("Player loses")) {
+        computerWins++;
+      }
+    }
+  
+    console.log("Player wins: " + playerWins);
+    console.log("Computer wins: " + computerWins);
+  }
+  
+  game();
