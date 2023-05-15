@@ -5,49 +5,68 @@ function getComputerChoice(){
 }
 
 
-function getPlayerChoice(){
-    let pChoice = prompt("Enter Rock, Paper, or Scissors");
+function getPlayerChoice(choice){
+    let pChoice = choice;
     return pChoice;
 }
-
+let playerWins =0;
+let computerWins =0;
+let tie =0;
 function playRound(playerChoice, computerChoice) {
     playerChoice = playerChoice.toLowerCase(); // Convert player's choice to lowercase
     computerChoice = computerChoice.toLowerCase(); // Convert computer's choice to lowercase
-  
+    
     if (playerChoice === "rock" && computerChoice === "paper") {
+      computerWins+=1;
       return "Player loses! Paper beats Rock.";
     } else if (playerChoice === "paper" && computerChoice === "rock") {
+      playerWins+=1;
       return "Player wins. Paper beats Rock.";
     } else if (playerChoice === "scissors" && computerChoice === "paper") {
+      playerWins+=1;
       return "Player wins. Scissors beats Paper.";
     } else if (playerChoice === "paper" && computerChoice === "scissors") {
+      computerWins+=1;
       return "Player loses. Scissors beats Paper.";
     } else if (playerChoice === "rock" && computerChoice === "scissors") {
+      playerWins+=1;
       return "Player wins. Rock beats Scissors.";
     } else if (playerChoice === "scissors" && computerChoice === "rock") {
+      computerWins+=1;
       return "Player loses. Rock beats Scissors.";
     } else {
+      tie+=1;
       return "Tie!";
     }
   }
 
-  function game() {
-    let playerWins = 0; // Variable to track player's wins
-    let computerWins = 0; // Variable to track computer's wins
+
   
-    for (let i = 0; i < 5; i++) {
-      let result = playRound(getPlayerChoice(), getComputerChoice());
-      console.log(result);
+  function updateScores(playerChoice, computerChoice) {
+    const result = playRound(playerChoice, computerChoice);
   
-      if (result.includes("Player wins")) {
-        playerWins++;
-      } else if (result.includes("Player loses")) {
-        computerWins++;
-      }
+    
+    
+    document.getElementById('playerScore').textContent="Player Wins: " + playerWins;
+    document.getElementById('computerScore').textContent="Computer Wins: " + computerWins;
+    document.getElementById("tie").textContent = "Ties: " + tie;
+    
+    if (playerWins === 5 || computerWins === 5) {
+       
+        const winner = playerWins === 5 ? 'Player' : 'Computer';
+        alert(winner + ' wins the game!');
+        
+        tie=0;
+        playerWins = 0;
+        computerWins = 0;
+        
+       
+        document.getElementById('playerScore').textContent = 'Player Score: 0';
+        document.getElementById('computerScore').textContent = 'Computer Score: 0';
+        document.getElementById('tie').textContent = 'Tie: 0';
     }
+}
   
-    console.log("Player wins: " + playerWins);
-    console.log("Computer wins: " + computerWins);
-  }
   
-  game();
+
+  
