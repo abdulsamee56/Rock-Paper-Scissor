@@ -8,12 +8,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="header"><h1>Rock Paper Scissors</h1>
+    <h2>First to 5 wins!</h2></div>
+    <div >
+        <button onclick="updateScores(getPlayerChoice('rock'), getComputerChoice())">button</button>
+        <button onclick="updateScores(getPlayerChoice('paper'), getComputerChoice())">Paper</button>
+        <button onclick="updateScores(getPlayerChoice('scissors'), getComputerChoice())">Scissor</button>
+        </div>
 
-
-
-
-
+        <div class="scores">
+        <div id="playerScore">Player Score: 0</div>
+        <div id ="tie">Tie score: 0</div>
+        <div id="computerScore">Computer Score: 0</div>
+        </div>
 
     <script src="index.js"></script>
 </body>
