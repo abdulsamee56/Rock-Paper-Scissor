@@ -1,0 +1,23 @@
+*{
+    text-align: center;
+    margin-top: 20px;
+    
+}
+
+body{
+    background-color: black;
+}
+
+button{
+    margin-top:40px;
+    margin-left:15px;
+}
+
+.scores{
+    margin-top:80px;
+    color:white;
+}
+
+.header{
+    color:white;
+}
